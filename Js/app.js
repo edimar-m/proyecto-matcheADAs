@@ -52,3 +52,22 @@ const createGrid = ()=>{
  infoButton.addEventListener('click', swallModalWelcom);
  restartButton.addEventListener('click', swalRestartGame);
   
+//Temporizador //Timer
+
+const myTimer = () =>{
+    if(time <= 30 && time >0){
+      time =  time -1
+      let seconds = time % 60;
+      let minutes = ((time - seconds) / 60) % 60; 
+      let txtSeconds = seconds < 10 ? '0' + seconds : seconds
+      let txtMinutes = minutes < 10 ? '0' + minutes : minutes
+      timer.innerHTML = `${txtMinutes}:${txtSeconds}`
+  
+    } else {
+        swalGameOver();
+      }
+  };
+  
+  function stopTimer() {
+    clearInterval(remainingTime);
+  }
