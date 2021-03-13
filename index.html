@@ -1,128 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./Img/favicon.jpg" type="image/x-icon">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./assets/favicon.jpg" type="image/x-icon">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&family=Stick&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/modal.css">
-    <title>MatcheADAS</title>
+    <script src="https://kit.fontawesome.com/b50399bb27.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <!-- Twemoji -->
+    <script src="https://twemoji.maxcdn.com/v/13.0.1/twemoji.min.js" integrity="sha384-5f4X0lBluNY/Ib4VhGx0Pf6iDCF99VGXJIyYy7dDLY5QlEd7Ap0hICSSZA1XYbc4" crossorigin="anonymous"></script>
+    
+    <!-- Sweet Alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+    <!-- Styles css-->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modales.css">
+    <title>MatcheADAs</title>
 </head>
+
 <body>
 
     <!--Comienza el contenedor prindipal-->
-
     <main class="main-container">
-        <h1 class="main-title">MatcheADAs</h1>
+        <h1 class="title">MatcheADAs</h1>
 
-        <!--Caja control del juego, puntaje, ayuda y reinicio-->
-
+        <!--Comienza la caja control del juego, puntaje, ayuda y reinicio-->
         <section class="control-panel">
-            <article class="score-panel">
-                <p>Combo x <span class="set" id="set">1</span></p>
-                <p>Puntos: <span class="score" id="score">0</span></p>
+            <article class="score.panel">
+                <p class="score-text" id="set">Combo x
+                    <span id="score-set">1</span>
+                </p>
+                <p class="score-text" id="score">Puntos:
+                    <span id="score-number">0</span>
+                </p>
             </article>
             <article class="panel-buttons">
-                <button id="help-button" aria-label="Instrucciones">
-                    <i class="fas fa-info-circle" aria-hidden="true"></i>
-                </button>
-                <button id="restart-button" aria-label="Reiniciar">
-                    <i class="fas fa-undo-alt" aria-hidden="true"></i>
-                </button>
+                <button id="info" aria-hidden="true" aria-label="Instrucciones"><i class="fas fa-info"></i></button>
+                <button id="restart" aria-hidden="true" aria-label="Reiniciar"><i class="fas fa-undo-alt"></i></button>
             </article>
         </section>
+        <!--Fin de la caja control del juego, puntaje, ayuda y reinicio-->
 
         <!--Comienza grilla del juego -->
 
-        <section class="grid-container" id="grid-container">
-            <article id="grid"></article>
+        <section class="grid-container"id="grid-container">
+            <article  class="grid" id="grid"></article>
         </section>
 
-        <!---Contador de tiempo del juego-->
+        <!--Fin de la grilla del juego -->
+
+        <!---Comienza el contador de tiempo del juego-->
 
         <section class="timer-container">
-            <i class="fas fa-hourglass-half" aria-hidden="true"></i>
-            <p class="remaining-time">0:00</p>
+            <i class="fas fa-hourglass-half" aria-hidden="true" aria-label="Contador"></i>
+            <p id="timer" class="remaining-time">00:00</p>
         </section>
+        <!---Fin del contador de tiempo del juego-->
 
-        <!--Comienzan los modales-->
+        <!--Comienzo del footer-->
 
-        <section class="modal-wrapper">
+        <footer class="sign-personal-footer">
+            <p class="sign-footer text"> Hecho <span class="sign"> por <i>Edimar Morles</i></span></p>
+        </footer>
 
-            <!--Comienza el modal de bienvenida-->
+        <!--Fin del footer-->
 
-            <article class="modal hidden"
-            id="welcome-modal"
-            role="dialog"
-            aria-modal="true">
-                <h2 class="modal-title">¡Bienvenid@!</h2>
-                <div class="modal-content">
-                    <p class="modal-text"> En MatcheADAs tu objetivo es juntar tres o más ítems del mismo tipo,
-                    ya sea en fila o columna. Para eso, selecciona un ítem y a
-                    continuación un ítem adyacente para intercambiarlos de lugar.</p>
-                    <br>
-                    <p class="modal-text"> Si se forma un grupo, esos ítems se eliminarán y ganarás puntos.
-                    ¡Sigue armando grupos de 3 o más antes de que se acabe el tiempo!</p>
-                    <br>
-                    <span class="modal-text" id="text-controles">Controles</span>
-                    <p>Click izquierdo: selección</p>
-                    <p>Enter o Epacio: selección</p>
-                    <p>Flechas o WASD: movimiento e intercambio</p>
-                    <br>
-                    <button class="button" id="start-button">A Jugar!</button>
-                </div>
-            </article>
-
-            <!--Comienza el modal de Reinicio del juego-->
-
-            <article class="modal hidden" id="reiniciar-modal"
-            role="dialog"
-            aria-modal="true">
-                <h2 class="modal-title">Reiniciar juego?</h2>
-                <div class="modal-content">
-                    <p class="modal-text">Perderás todo tu puntaje acumulado!</p>
-                    <br>
-                    <button class="button" id="cancel-button">Cancelar</button>
-                    <button class="button" id="New-game-button">Nuevo Juego</button>
-                </div>
-            </article>
-
-            <!--Comienza el modal de Juego terminado-->
-
-            <article class="modal hidden" id="game-finished-modal" role="dialog"
-            aria-modal="true">
-                <h2 class="modal-title">¡Juego terminado!</h2>
-                <div class="modal-content"> 
-                    <p class="modal-text">Puntaje final: <span id="final-score"> 0 </span></p>
-                </div> 
-                <div class="modal-options-buttons">
-                    <button class="button" id="new-game-button">Nuevo Juego</button>
-                    <button class="button" id="restart-button">Reiniciar</button>
-                </div>
-            </article>
-
-            <!--Comienza el modal de nueva partida -->
-
-            <article class="modal hidden"id="new-game-modal"
-            role="dialog"
-            aria-modal="true">
-                <h2 class="modal-title">Nuevo Juego</h2>
-                <div class="modal-content">
-                    <p>Selecciona un nivel de dificultad</p>
-                </div>
-                <div class=" modal-options-buttons">
-                    <button class="button" id="easy-mode-button">Fácil</button>
-                    <button class="button" id="normal-mode-button">Normal</button>
-                    <button class="button" id="dificult-mode-button">Difícil</button>
-                </div>
-            </article>
-        </section>
     </main>
 
-    <script src="./Js/app.js"></script>
-    <script src="./Js/modal.js"></script>
+    <script src="js/modales.js"></script>
+    <script src="js/app.js"></script>
 </body>
+
 </html>
