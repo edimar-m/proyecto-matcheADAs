@@ -41,7 +41,7 @@
 <br>
 
 ### Vista del modo claro
-![images](https://github.com/edimar-m/Generador-de-memes/blob/master/images/screencapture-proyecto-generador-de-memes-claro.png)
+![images](https://github.com/edimar-m/proyecto-matcheADAs/blob/master/assets/screencapture-safari-matcheADAS.png)
 
 ***
 ## Agradecimientos🙌
