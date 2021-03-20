@@ -1,4 +1,3 @@
-
 /* General Styles */
 
 :root{ 
@@ -58,7 +57,6 @@ p,i{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    top:30px;
     margin: auto;
     position: relative;
 }
@@ -80,25 +78,27 @@ p,i{
     text-shadow: rgb(98, 38, 133) 0.1em 0.1em 0.2em;
     box-shadow: 0px 0px 5px 4px #ebe1e1b7 inset;
 }
-  
-.score.panel {
+
+.score.panel{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
     align-items: center;
-    font-size: 22px;
+    font-size: 1rem;
+}
+
+.score-text {
+    align-items: center;
+    font-size: 1rem;
 }
  
 #set {
-    width: 20%;
-    margin-right: 20px;
+    width: 100%;
     display: flex;
     flex-direction: row;
 }
-  
-#score {
-    margin-left: 15px;
-}
-  
+
 #info,
 #restart {
     background-color: transparent;
@@ -193,6 +193,4 @@ img.emoji {
 .sign-footer text, sign{
     font-family: var(--mainFont);
     font-size: 1.3rem;
-
 }
-
