@@ -1,0 +1,54 @@
+/* Styles modales */
+
+.swal-overlay {
+    background-color:transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  
+  .swal-modal {
+
+    background-color: var(--backgroundModal);
+    border: 3px solid var(--borderColor);
+    width: 40%;
+    border-radius: var(--borderRadius);
+    margin-top: 100px;    
+  }
+  
+  .swal-title {
+
+    font-family: var(--secondFont);
+    font-size: 2rem;
+    top: -10px;
+    color: var(--mainColor);
+  }
+  
+  .swal-text {
+
+    font-family: var(--mainFont);
+    text-align: center;
+    color: var(--modalColorFont);
+    font-size: 0.8rem;
+
+  }
+  
+  .swal-button {
+
+    border-radius: 10px;
+    background-color: var(--backgroundButton);  
+    font-size: 0.8rem;
+    font-family: var(--mainFont);
+    color: var(--mainColor);
+    border: 1px solid var(--borderColor);
+  }
+  
+  .swal-button--cancel{
+    background-color: var(--backgroundButton);  
+  }
+  
+  .swal-button:not([disable]):hover{
+    background-color: var(--buttonHover);  
+  }
+
